@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>使用JS创建虚拟DOM(几乎不用)</title>
+    <!-- 引入React核心库 -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <!-- 引入 react-dom： 用来支持 react 的dom操作(渲染) -->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  </head>
+  <body>
+    <!-- 准备好一个容器 -->
+    <div id="app">
+
+    </div>
+
+    <script type="text/javascript">
+      //创建虚拟DOM
+    //   const VDOM = React.createElement(标签名,标签属性,标签内容)
+      const VDOM = React.createElement("h1",{id:"title"},React.createElement("span",{},"hello React"))
+      // 渲染虚拟DOM到页面上
+      ReactDOM.render( // render方法接收两个参数
+          VDOM,
+          document.querySelector('#app')
+      )
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>06_函数式组件使用props</title>
+    <!-- 引入React核心库 -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <!-- 引入 react-dom： 用来支持 react 的dom操作(渲染) -->
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- 引入 babel：用来将引入 babel：用来将jsx语法转换成js -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/prop-types/15.7.2/prop-types.js"></script>
+  </head>
+  <body>
+    <!-- 准备好一个容器 -->
+    <div id="app"></div>
+    <div id="app2"></div>
+
+    <!-- script的类型必须是text/babel -->
+    <script type="text/babel">
+        // 创建函数式组件
+        function Person(props){
+            return (
+                <ul>
+                    <li>姓名：{ props.name }</li>
+                    <li>性别：{ props.sex }</li>
+                    <li>年龄：{ props.age + 1 }</li>
+                </ul>
+            )
+        }
+        Person.propTypes = {
+              name: PropTypes.string.isRequired,//限制name必须为字符串并且为必传
+              sex: PropTypes.string,//限制sex必须为字符串
+              age: PropTypes.number,//限制age必须为数字
+              speak: PropTypes.func,//限制speak必须为函数 
+          }
+          Person.defaultProps = {//设置默认值
+            sex: "人妖",
+            age: 18
+          }
+        // 渲染组件到页面
+        ReactDOM.render(<Person name="LBipanda" />,document.getElementById("app"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person{
+            name = "name";//实例属性
+            static age = 18;//类属性
+            constructor(name){//构造方法
+                this.name = name;
+            }
+            hello(){//一般方法
+                console.log(this);
+            }
+        }
+        let p = new Person("LB", 22);//实例对象
+        console.log(p);
+        console.log(Person.age);
+        const all = p.hello;
+        all();
+
+        // function Person(name,age){
+        //     this.name = name;
+        //     this.age = age;
+        //     this.hello = function(){
+        //         console.log("this", this);
+        //         console.log(`${name}你好`);
+        //     }
+        // }
+        // let p1 = new Person("LB", 18);
+        // console.log(p1);
+        // console.log(p1.age);
+        // p1.hello();
+    </script>
+</body>
+</html>
